@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uix/provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -25,6 +27,8 @@ await prefs.setBool('repeat', true);
   }
   @override  
   Widget build(BuildContext context) {
+   final myProvider = Provider.of<CartProvider>(context); 
+   print(myProvider.name);
     return Scaffold(
       body: Center(child: ElevatedButton(onPressed: getPref, child: Text("get data")))
     );
